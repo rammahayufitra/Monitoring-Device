@@ -1,12 +1,9 @@
 import psutil
 import GPUtil
-import numpy as np
 import os
 
 
-
 gpus = GPUtil.getGPUs()
-
 
 def get_size(bytes, suffix="B"):
     """
@@ -73,4 +70,4 @@ def info_gpu():
     return ([gpu_name, gpu_temp, gpu_free_memory, gpu_used_memory, gpu_total_memory])
     
 while True:
-    print(info_disk(), end= ' ')
+    print(info_cpu())
