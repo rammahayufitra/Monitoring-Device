@@ -1,10 +1,12 @@
-from quart import Quart 
+from flask import Flask 
 from info_device import info_cpu, info_gpu, info_memory, info_disk
 
-app = Quart(__name__)
+
+app = Flask(__name__)
 
 @app.route('/monitoring', methods=['GET'])
-async def get_monitoring():
+    
+def get_monitoring():
     temparature_cpu,cpu_use_per_core, total_cpu_usage = info_cpu() 
     gpu_name, gpu_temp, gpu_free_memory, gpu_used_memory, gpu_total_memory = info_gpu()
     total_ram, available_ram, used_ram, percentage = info_memory()
@@ -39,9 +41,7 @@ async def get_monitoring():
         }
     }
     return monitoring_device
-
-
-
-app.run()
-
+    
+if __name__ == "__main__":
+    app.run()
     

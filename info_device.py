@@ -69,4 +69,3 @@ def info_gpu():
         gpu_total_memory = get_size(gpu.memoryTotal)
     return ([gpu_name, gpu_temp, gpu_free_memory, gpu_used_memory, gpu_total_memory])
     
-print(info_memory())
