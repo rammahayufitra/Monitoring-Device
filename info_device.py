@@ -64,10 +64,9 @@ def info_gpu():
     for gpu in gpus:
         gpu_name = gpu.name
         gpu_temp = gpu.temperature
-        gpu_free_memory = gpu.memoryFree
-        gpu_used_memory = gpu.memoryUsed
-        gpu_total_memory = gpu.memoryTotal
+        gpu_free_memory = get_size(gpu.memoryFree)
+        gpu_used_memory = get_size(gpu.memoryUsed)
+        gpu_total_memory = get_size(gpu.memoryTotal)
     return ([gpu_name, gpu_temp, gpu_free_memory, gpu_used_memory, gpu_total_memory])
     
-while True:
-    print(info_cpu())
+print(info_memory())
