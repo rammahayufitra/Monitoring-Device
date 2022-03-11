@@ -7,10 +7,12 @@ app = Flask(__name__)
 @app.route('/monitoring', methods=['GET'])
     
 def get_monitoring():
+    
     temparature_cpu,cpu_use_per_core, total_cpu_usage = info_cpu() 
     gpu_name, gpu_temp, gpu_free_memory, gpu_used_memory, gpu_total_memory = info_gpu()
     total_ram, available_ram, used_ram, percentage = info_memory()
     total_size_disk, used_disk, available_disk, percentage = info_disk()
+   
     monitoring_device = {
         "info_cpu": {
             "temparature_cpu": f'{temparature_cpu} \u2103',
@@ -41,7 +43,4 @@ def get_monitoring():
         }
     }
     return monitoring_device
-    
-if __name__ == "__main__":
-    app.run()
     

@@ -84,5 +84,4 @@ class Monitoring():
         return json_info_cpu
     
 
-# monitoring = Monitoring()
-# print(monitoring.info_gpu())
+monitoring = Monitoring()
